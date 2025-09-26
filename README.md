@@ -10,6 +10,7 @@
 - **路由**: 使用 [go_router](https://pub.dev/packages/go_router) 管理应用内的所有页面导航。
 - **主题切换**: 支持动态切换浅色/深色主题模式。
 - **HTTP 请求**: 演示如何结合 `FutureProvider` 从网络 API 获取数据。
+- **文本转换**: 实时将 Markdown 格式的文本转换为纯文本。
 - **清晰的结构**: 项目代码按功能模块划分，易于理解和扩展。
 
 ## Demos
@@ -31,6 +32,11 @@
     - 优雅地处理加载中、成功和错误三种状态。
     - 支持下拉刷新，通过 `ref.invalidate` 重新获取数据。
 
+4.  **Markdown to Text Demo (`StateProvider` 和 `Provider`)**
+    - 使用 `StateProvider` 保存用户输入的 Markdown 文本。
+    - 使用 `Provider` 监听输入变化，并实时将其转换为纯文本。
+    - 演示了 Provider 之间如何组合和依赖，实现衍生状态的计算。
+
 ## 项目结构
 
 ```
@@ -50,6 +56,10 @@ lib/
 │   │   ├── counter_provider.dart# StateProvider
 │   │   └── counter_screen.dart  # UI
 │   │
+│   ├── demo_md_to_txt/
+│   │   ├── md_to_txt_provider.dart # StateProvider 和 Provider
+│   │   └── md_to_txt_screen.dart   # UI
+│   │
 │   ├── demo_todos/
 │   │   ├── models/              # 数据模型
 │   │   ├── widget/              # UI 组件
@@ -68,6 +78,7 @@ lib/
 - **go_router**: 声明式路由库。
 - **http**: 用于发起网络请求。
 - **uuid**: 用于生成唯一的 ID。
+- **markdown**: 用于将 Markdown 转换为 HTML。
 
 ## 如何开始
 

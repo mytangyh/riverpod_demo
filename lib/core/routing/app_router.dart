@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../features/demo_async_post/post_screen.dart';
 import '../../features/demo_counter/counter_screen.dart';
+import '../../features/demo_md_to_txt/md_to_txt_screen.dart';
 import '../../features/demo_todos/todos_screen.dart';
 import '../../features/home/home_screen.dart';
 
@@ -31,6 +32,11 @@ final routerProvider = Provider<GoRouter>((ref) {
         path: '/post',
         name: 'post',
         builder: (context, state) => const PostScreen(),
+      ),
+      GoRoute(
+        path: '/md2txt',
+        name: 'md2txt',
+        builder: (context, state) => const MdToTxtScreen(),
       ),
     ],
   );

@@ -43,6 +43,11 @@ class HomeScreen extends ConsumerWidget { // 完整代码
             subtitle: 'Using FutureProvider',
             onTap: () => context.go('/post'),
           ),
+          _DemoTile(
+            title: 'Md To Txt Demo',
+            subtitle: 'Using Provider and StateProvider',
+            onTap: () => context.go('/md2txt'),
+          ),
         ],
       ),
     );

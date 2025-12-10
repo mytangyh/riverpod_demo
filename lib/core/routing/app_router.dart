@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../features/demo_async_post/post_screen.dart';
 import '../../features/demo_counter/counter_screen.dart';
+import '../../features/demo_live_stream/live_stream_screen.dart';
 import '../../features/demo_md_to_txt/md_to_txt_screen.dart';
 import '../../features/demo_todos/todos_screen.dart';
 import '../../features/home/home_screen.dart';
@@ -37,6 +38,11 @@ final routerProvider = Provider<GoRouter>((ref) {
         path: '/md2txt',
         name: 'md2txt',
         builder: (context, state) => const MdToTxtScreen(),
+      ),
+      GoRoute(
+        path: '/live-stream',
+        name: 'live-stream',
+        builder: (context, state) => const LiveStreamScreen(),
       ),
     ],
   );

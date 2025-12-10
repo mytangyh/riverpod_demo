@@ -4,7 +4,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../core/theme/theme_provider.dart';
 
-class HomeScreen extends ConsumerWidget { // 完整代码
+class HomeScreen extends ConsumerWidget {
+  // 完整代码
   const HomeScreen({super.key});
 
   @override
@@ -48,13 +49,19 @@ class HomeScreen extends ConsumerWidget { // 完整代码
             subtitle: 'Using Provider and StateProvider',
             onTap: () => context.go('/md2txt'),
           ),
+          _DemoTile(
+            title: 'Live Stream Demo',
+            subtitle: 'Using fijkplayer for RTMP/HLS streaming',
+            onTap: () => context.go('/live-stream'),
+          ),
         ],
       ),
     );
   }
 }
 
-class _DemoTile extends StatelessWidget { // 完整代码
+class _DemoTile extends StatelessWidget {
+  // 完整代码
   final String title;
   final String subtitle;
   final VoidCallback onTap;

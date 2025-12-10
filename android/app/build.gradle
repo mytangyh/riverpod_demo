@@ -25,8 +25,8 @@ if (flutterVersionName == null) {
 
 android {
     namespace = "com.example.riverpod_demo"
-    compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    compileSdk = 36  // 更新以满足 media_kit 插件要求
+    ndkVersion = "27.0.12077973"  // 更新以满足 media_kit 插件要求
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8

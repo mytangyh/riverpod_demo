@@ -40,6 +40,10 @@ dependencies:
   go_router: ^14.0.2
   http: ^1.2.1
   uuid: ^4.4.0
+  # 直播流播放器 - 使用 media_kit 替代 fijkplayer 以获得更好的兼容性
+  media_kit: ^1.1.10
+  media_kit_video: 1.2.4  # 锁定版本以兼容 Flutter 3.22.3
+  media_kit_libs_video: ^1.0.4
 
 dev_dependencies:
   flutter_test:

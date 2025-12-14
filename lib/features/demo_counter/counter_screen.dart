@@ -1,9 +1,11 @@
 // lib/features/demo_counter/counter_screen.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'counter_provider.dart';
 
-class CounterScreen extends ConsumerWidget { // 完整代码
+class CounterScreen extends ConsumerWidget {
+  // 完整代码
   const CounterScreen({super.key});
 
   @override
@@ -18,7 +20,19 @@ class CounterScreen extends ConsumerWidget { // 完整代码
     });
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Counter Demo')),
+      appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            if (context.canPop()) {
+              context.pop();
+            } else {
+              context.go('/');
+            }
+          },
+        ),
+        title: const Text('Counter Demo'),
+      ),
       body: Center(
         child: Text(
           '$count',

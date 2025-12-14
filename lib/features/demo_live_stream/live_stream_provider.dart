@@ -165,7 +165,7 @@ final testStreamUrlsProvider = Provider<List<StreamOption>>((ref) {
     ),
     StreamOption(
       name: 'RTMP 测试流',
-      url: 'rtmp://live.hkstv.hk.lxdns.com/live/hks2',
+      url: 'rtmp://ns8.indexforce.com/home/mystream',
       type: StreamType.rtmp,
     ),
   ];

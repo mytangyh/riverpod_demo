@@ -1,6 +1,7 @@
 // lib/features/demo_todos/todos_screen.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:riverpod_demo/features/demo_todos/widget/todo_item.dart';
 import 'todos_provider.dart';
 
@@ -39,6 +40,16 @@ class _TodosScreenState extends ConsumerState<TodosScreen> {
 
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            if (context.canPop()) {
+              context.pop();
+            } else {
+              context.go('/');
+            }
+          },
+        ),
         title: const Text('Todo List Demo'),
       ),
       body: Column(
@@ -75,19 +86,19 @@ class _TodosScreenState extends ConsumerState<TodosScreen> {
           Expanded(
             child: todos.isEmpty
                 ? const Center(
-              child: Text(
-                'All done! Add a new task above.',
-                style: TextStyle(color: Colors.grey),
-              ),
-            )
+                    child: Text(
+                      'All done! Add a new task above.',
+                      style: TextStyle(color: Colors.grey),
+                    ),
+                  )
                 : ListView.builder(
-              itemCount: todos.length,
-              itemBuilder: (context, index) {
-                final todo = todos[index];
-                // 使用独立的 TodoItem widget
-                return TodoItem(todo: todo);
-              },
-            ),
+                    itemCount: todos.length,
+                    itemBuilder: (context, index) {
+                      final todo = todos[index];
+                      // 使用独立的 TodoItem widget
+                      return TodoItem(todo: todo);
+                    },
+                  ),
           ),
         ],
       ),

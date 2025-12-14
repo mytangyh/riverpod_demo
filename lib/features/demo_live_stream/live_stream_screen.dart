@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:media_kit_video/media_kit_video.dart';
 import 'live_stream_provider.dart';
 import 'widgets/player_controls.dart';
@@ -31,6 +32,8 @@ class _LiveStreamScreenState extends ConsumerState<LiveStreamScreen> {
 
   @override
   void dispose() {
+    // 停止播放器
+    ref.read(liveStreamProvider.notifier).stop();
     // 恢复系统UI
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
     super.dispose();
@@ -206,7 +209,13 @@ class _LiveStreamScreenState extends ConsumerState<LiveStreamScreen> {
               // 返回按钮
               IconButton(
                 icon: const Icon(Icons.arrow_back, color: Colors.white),
-                onPressed: () => Navigator.pop(context),
+                onPressed: () {
+                  if (context.canPop()) {
+                    context.pop();
+                  } else {
+                    context.go('/');
+                  }
+                },
               ),
 
               // 直播标识

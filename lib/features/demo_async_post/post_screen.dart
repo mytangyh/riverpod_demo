@@ -1,9 +1,11 @@
 // lib/features/demo_async_post/post_screen.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'post_provider.dart';
 
-class PostScreen extends ConsumerWidget { // 完整代码
+class PostScreen extends ConsumerWidget {
+  // 完整代码
   const PostScreen({super.key});
 
   @override
@@ -12,6 +14,16 @@ class PostScreen extends ConsumerWidget { // 完整代码
 
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            if (context.canPop()) {
+              context.pop();
+            } else {
+              context.go('/');
+            }
+          },
+        ),
         title: const Text('Async Post Demo'),
         actions: [
           IconButton(
@@ -27,7 +39,8 @@ class PostScreen extends ConsumerWidget { // 完整代码
           data: (post) => Padding(
             padding: const EdgeInsets.all(16.0),
             child: ListTile(
-              title: Text(post.title, style: const TextStyle(fontWeight: FontWeight.bold)),
+              title: Text(post.title,
+                  style: const TextStyle(fontWeight: FontWeight.bold)),
               subtitle: Text(post.body),
             ),
           ),

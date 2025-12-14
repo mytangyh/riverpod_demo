@@ -164,6 +164,12 @@ final testStreamUrlsProvider = Provider<List<StreamOption>>((ref) {
       type: StreamType.hls,
     ),
     StreamOption(
+      name: 'HLS 测试流 (西瓜)',
+      url:
+          'https://sf1-cdn-tos.huoshanstatic.com/obj/media-fe/xgplayer_doc_video/hls/xgplayer-demo.m3u8',
+      type: StreamType.hls,
+    ),
+    StreamOption(
       name: 'RTMP 测试流',
       url: 'rtmp://ns8.indexforce.com/home/mystream',
       type: StreamType.rtmp,
